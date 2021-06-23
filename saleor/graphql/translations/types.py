@@ -63,10 +63,6 @@ class AttributeValueTranslatableContent(CountableDjangoObjectType):
     translation = TranslationField(
         AttributeValueTranslation, type_name="attribute value"
     )
-    attribute_value = graphene.Field(
-        "saleor.graphql.attribute.types.AttributeValue",
-        description="Represents a value of an attribute.",
-    )
 
     class Meta:
         model = attribute_models.AttributeValue
@@ -87,10 +83,6 @@ class AttributeTranslation(BaseTranslationType):
 
 class AttributeTranslatableContent(CountableDjangoObjectType):
     translation = TranslationField(AttributeTranslation, type_name="attribute")
-    attribute = graphene.Field(
-        "saleor.graphql.attribute.types.Attribute",
-        description="Custom attribute of a product.",
-    )
 
     class Meta:
         model = attribute_models.Attribute
@@ -112,12 +104,6 @@ class ProductVariantTranslation(BaseTranslationType):
 class ProductVariantTranslatableContent(CountableDjangoObjectType):
     translation = TranslationField(
         ProductVariantTranslation, type_name="product variant"
-    )
-    product_variant = graphene.Field(
-        "saleor.graphql.product.types.products.ProductVariant",
-        description=(
-            "Represents a version of a product such as different size or color."
-        ),
     )
 
     class Meta:
@@ -157,10 +143,6 @@ class ProductTranslatableContent(CountableDjangoObjectType):
         ),
     )
     translation = TranslationField(ProductTranslation, type_name="product")
-    product = graphene.Field(
-        "saleor.graphql.product.types.products.Product",
-        description="Represents an individual item for sale in the storefront.",
-    )
 
     class Meta:
         model = product_models.Product
@@ -204,10 +186,6 @@ class CollectionTranslatableContent(CountableDjangoObjectType):
         ),
     )
     translation = TranslationField(CollectionTranslation, type_name="collection")
-    collection = graphene.Field(
-        "saleor.graphql.product.types.products.Collection",
-        description="Represents a collection of products.",
-    )
 
     class Meta:
         model = product_models.Collection
@@ -255,10 +233,6 @@ class CategoryTranslatableContent(CountableDjangoObjectType):
         ),
     )
     translation = TranslationField(CategoryTranslation, type_name="category")
-    category = graphene.Field(
-        "saleor.graphql.product.types.products.Category",
-        description="Represents a single category of products.",
-    )
 
     class Meta:
         model = product_models.Category
@@ -308,13 +282,6 @@ class PageTranslatableContent(CountableDjangoObjectType):
         ),
     )
     translation = TranslationField(PageTranslation, type_name="page")
-    page = graphene.Field(
-        "saleor.graphql.page.types.Page",
-        description=(
-            "A static page that can be manually added by a shop operator ",
-            "through the dashboard.",
-        ),
-    )
 
     class Meta:
         model = page_models.Page
@@ -351,14 +318,6 @@ class VoucherTranslation(BaseTranslationType):
 
 class VoucherTranslatableContent(CountableDjangoObjectType):
     translation = TranslationField(VoucherTranslation, type_name="voucher")
-    voucher = graphene.Field(
-        "saleor.graphql.discount.types.Voucher",
-        description=(
-            "Vouchers allow giving discounts to particular customers on categories, "
-            "collections or specific products. They can be used during checkout by "
-            "providing valid voucher codes."
-        ),
-    )
 
     class Meta:
         model = discount_models.Voucher
@@ -380,13 +339,6 @@ class SaleTranslation(BaseTranslationType):
 
 class SaleTranslatableContent(CountableDjangoObjectType):
     translation = TranslationField(SaleTranslation, type_name="sale")
-    sale = graphene.Field(
-        "saleor.graphql.discount.types.Sale",
-        description=(
-            "Sales allow creating discounts for categories, collections "
-            "or products and are visible to all the customers."
-        ),
-    )
 
     class Meta:
         model = discount_models.Sale
@@ -415,13 +367,6 @@ class MenuItemTranslation(BaseTranslationType):
 
 class MenuItemTranslatableContent(CountableDjangoObjectType):
     translation = TranslationField(MenuItemTranslation, type_name="menu item")
-    menu_item = graphene.Field(
-        "saleor.graphql.menu.types.MenuItem",
-        description=(
-            "Represents a single item of the related menu. Can store categories, "
-            "collection or pages."
-        ),
-    )
 
     class Meta:
         model = menu_models.MenuItem
@@ -443,13 +388,6 @@ class ShippingMethodTranslation(BaseTranslationType):
 class ShippingMethodTranslatableContent(CountableDjangoObjectType):
     translation = TranslationField(
         ShippingMethodTranslation, type_name="shipping method"
-    )
-    shipping_method = graphene.Field(
-        "saleor.graphql.shipping.types.ShippingMethod",
-        description=(
-            "Shipping method are the methods you'll use to get customer's orders "
-            " to them. They are directly exposed to the customers."
-        ),
     )
 
     class Meta:
