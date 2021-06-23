@@ -217,6 +217,7 @@ All notable, unreleased changes to this project will be documented in this file.
   - `values` for attributes without choices from now are empty list.
   - attributes with choices - `DROPDOWN` and `MULTISELECT`
   - attributes without choices - `FILE`, `REFERENCE`, `NUMERIC` and `RICH_TEXT`
+- Drop nested objects from TranslatableContent types - #7522 by @IKarbowiak
 
 ### Other
 
